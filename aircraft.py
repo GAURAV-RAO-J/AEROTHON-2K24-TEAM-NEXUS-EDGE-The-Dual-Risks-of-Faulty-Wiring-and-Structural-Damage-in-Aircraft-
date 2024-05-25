@@ -23,7 +23,7 @@ st.set_page_config(
 )
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 # Set up Google Gemini-Pro AI model
-gen_ai.configure(api_key="AIzaSyBb9YYJkW_5EyBtSsJ1QrzdLZCaoR3U5gs")
+gen_ai.configure(api_key=GOOGLE_API_KEY)
 gemini_model = gen_ai.GenerativeModel('gemini-pro')
 
 # Function to translate roles between Gemini-Pro and Streamlit terminology
@@ -97,8 +97,8 @@ if st.session_state.clicked:
             temp_file.write(uploaded_file.read())
             image_path = temp_file.name  # Get the temporary file path
 
-        rf = Roboflow(api_key="mydcymcSm1nXromS26eO")
-        project = rf.workspace().project("gaurav_rao_j")
+        rf = Roboflow(api_key=Your_api_key)
+        project = rf.workspace().project(project_name)
         model = project.version(2).model
 
         result = model.predict(image_path, confidence=2, overlap=30).json()
