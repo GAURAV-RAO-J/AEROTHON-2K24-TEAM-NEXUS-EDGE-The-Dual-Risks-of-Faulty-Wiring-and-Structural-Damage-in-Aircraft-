@@ -20,5 +20,7 @@ XGBoost has been compared to different algorithms such as random forest (RF), gr
 
 How easily can your solution be implemented and how effective will it be?
 The solution which has been developed can be easily used via the cloud since it has been hosted in it and it does not equire extra add ons.
+![Screenshot (87)](https://github.com/GAURAV-RAO-J/AEROTHON-2K24-TEAM-NEXUS-EDGE-The-Dual-Risks-of-Faulty-Wiring-and-Structural-Damage-in-Aircraft-/assets/170788756/0a82e1ad-f46f-4daf-9722-7d62f09179e2)
 
+![Screenshot (58)](https://github.com/GAURAV-RAO-J/AEROTHON-2K24-TEAM-NEXUS-EDGE-The-Dual-Risks-of-Faulty-Wiring-and-Structural-Damage-in-Aircraft-/assets/170788756/46099a85-bc55-433a-8478-33af5fa78769)
 
