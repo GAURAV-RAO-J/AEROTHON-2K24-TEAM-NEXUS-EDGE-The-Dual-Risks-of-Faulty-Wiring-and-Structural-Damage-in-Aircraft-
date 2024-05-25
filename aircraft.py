@@ -7,8 +7,31 @@ import json
 import pickle
 import pandas as pd
 import tempfile
-# st.session_state.clicked = True
+import os
+import streamlit as st
+from dotenv import load_dotenv
+import google.generativeai as gen_ai
 
+# Load environment variables
+load_dotenv()
+# st.session_state.clicked = True
+# Configure Streamlit page settings
+st.set_page_config(
+    page_title="AIRSAFETY DETECTION ",
+    page_icon="	:small_airplane:",  # Favicon emoji
+    layout="centered",  # Page layout option
+)
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+# Set up Google Gemini-Pro AI model
+gen_ai.configure(api_key="AIzaSyBb9YYJkW_5EyBtSsJ1QrzdLZCaoR3U5gs")
+gemini_model = gen_ai.GenerativeModel('gemini-pro')
+
+# Function to translate roles between Gemini-Pro and Streamlit terminology
+def translate_role_for_streamlit(user_role):
+    if user_role == "model":
+        return "assistant"
+    else:
+        return user_role
 # def set_background_color(color):
 #   """Sets the background color of the Streamlit app."""
 #   st.write(f"<style>.root {{ background-color: {color}; }}</style>", unsafe_allow_html=True)
@@ -49,8 +72,8 @@ def click_button_1():
     st.session_state.clicked = False
     
 
-custom_header("AIRCRAFT SAFETY")
-st.header('CRACK AND DENT :blue[ELECTRICAL FAULT]')
+custom_header("AIRCRAFT SAFETY ")
+st.header('CRACK AND DENT :blue[ELECTRICAL FAULT]:airplane_arriving:')
 
 col1, col2 = st.columns([1,1])  # Adjust column ratios as needed
 
@@ -78,7 +101,7 @@ if st.session_state.clicked:
         project = rf.workspace().project("gaurav_rao_j")
         model = project.version(2).model
 
-        result = model.predict(image_path, confidence=40, overlap=30).json()
+        result = model.predict(image_path, confidence=2, overlap=30).json()
 
         labels = [item["class"] for item in result["predictions"]]
 
@@ -96,8 +119,15 @@ if st.session_state.clicked:
         st.image(annotated_image, caption="DETECTED IMAGE")
 
         class_counts = count_classes_from_json(json.dumps(result))
+        st.title("CRACK OR DENT DETECTED")
         for class_name, count in class_counts.items():
-           st.title(f"- {class_name}: {count}")
+           st.header(f"- {class_name}: {count}")
+        # Display the chatbot's title on the page
+        st.title("SEVERITY")
+        prompt=f"There are{result} in the plane during scanning.Just predict severity of the damage in one word "
+        response = gemini_model.generate_content(prompt)
+        st.header(response.text)
+
            
 else:
        # Create six text boxes with labels
