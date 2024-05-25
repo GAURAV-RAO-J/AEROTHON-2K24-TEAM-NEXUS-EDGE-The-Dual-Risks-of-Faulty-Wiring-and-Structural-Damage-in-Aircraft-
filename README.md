@@ -4,13 +4,14 @@ Additionally, the XGBoost model is employed to detect wiring faults in the aircr
 
 How it helps to solve the problem?
 
-These technologies help solve critical safety problems in aviation. By detecting dents and cracks at early stages, YOLO prevents potential future disasters. Meanwhile, XGBoost predicts wiring faults by analyzing input values, allowing for early intervention and maintenance
+These technologies help solve critical safety problems in aviation. By detecting dents and cracks at early stages, YOLO prevents potential future disasters. Meanwhile, XGBoost predicts wiring faults by analyzing input values, allowing for early intervention and maintenance.Generative ai for the prediction of the severity of the cracks and dents which is the output yolov8 model hosted in roboflow
 
 Frameworks/Tools/Technologies stacks used
 Streamlit:A python framework used for connecting
 Yolo 
 XGBoost 
 Python
+Generative ai (gemini pro)
 
 Reason behind choosing a technology
 Yolo: It can process images at 45 Frames Per Second (FPS). In addition, YOLO reaches more than twice the mean Average Precision (mAP) compared to other real-time systems
