@@ -17,6 +17,7 @@ Yolo: It can process images at 45 Frames Per Second (FPS). In addition, YOLO rea
 XGBoost has been compared to different algorithms such as random forest (RF), gradient boosting machines (GBM), and gradient boosting decision trees (GBDT). These comparisons show that XGBoost outperforms these other algorithms in execution speed and model performance.
 
 
-How easily can your solution be implemented and how effective will it be?The solution which has been developed can be easily used via the cloud since it has been hosted in it and it does not equire extra add ons.
+How easily can your solution be implemented and how effective will it be?
+The solution which has been developed can be easily used via the cloud since it has been hosted in it and it does not equire extra add ons.
 
 
